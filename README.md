@@ -1,5 +1,5 @@
 # REUSICIAN
-Made by Yishan Lin, James Liu, Tengyi Huang, and William Chen Lv for Hack Cupertino 2025.
+Made by James Liu, Yishan Lin, Tengyi Huang, and William Chen Lv for Hack Cupertino 2025.
 
 What is Reusician?
 Reusician, (Reuse+Musician!) is a website where people can list instruments and instrumental supplies they do not need, in search for a new owner.
