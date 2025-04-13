@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+    .feature-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+        color: #fff;
+        background-color: white;
+        border-radius: 50%;
+    }
+    .feature {
+        margin-bottom: 2rem;
+    }
+    .about-image {
+        max-height: 400px; /* Match profile image size */
+        max-width: 100%;
+        object-fit: contain;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="container mt-4">
+    <!-- Large Image -->
+    <div class="text-center">
+        <img src="{{ url_for('static', filename='media/logo2.png') }}" alt="About Banner" class="img-fluid rounded about-image">
+    </div>
+
+    <!-- About Text -->
+    <div class="text-center">
+        <h1>About Reusician</h1>
+        <p class="mt-3">Learn more about our mission to support musicians and promote sustainability.</p>
+    </div>
+
+    <!-- Features Section -->
+    <div class="row text-center mt-5">
+        <div class="col-md-4 feature">
+            <div class="feature-icon bg-primary">
+                <i class="bi bi-heart"></i>
+            </div>
+            <h3 class="fs-4 mt-3">Our Mission</h3>
+            <p>We aim to connect musicians and promote the reuse of musical instruments.</p>
+        </div>
+        <div class="col-md-4 feature">
+            <div class="feature-icon bg-primary">
+                <i class="bi bi-people"></i>
+            </div>
+            <h3 class="fs-4 mt-3">Community</h3>
+            <p>Join a growing community of musicians and enthusiasts.</p>
+        </div>
+        <div class="col-md-4 feature">
+            <div class="feature-icon bg-primary">
+                <i class="bi bi-recycle"></i>
+            </div>
+            <h3 class="fs-4 mt-3">Sustainability</h3>
+            <p>Encouraging the reuse and recycling of musical instruments.</p>
+        </div>
+    </div>
+
+    <!-- Call to Action -->
+    <div class="text-center mt-5">
+        <h2>Get Involved</h2>
+        <p class="mt-3">Ready to join us? Log in or sign up to explore our community and contribute to our mission!</p>
+        <a href="{{ url_for('login') }}" class="btn btn-primary">Log In</a>
+        <p class="mt-2">
+            <a href="{{ url_for('signup') }}" class="text-primary">Don't Have An Account? Sign Up</a>
+        </p>
+    </div>
+</div>
+
+<p id="blank"></p>
+
+<p id="footer"> </p>
+{% endblock %}

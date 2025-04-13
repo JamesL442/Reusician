@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block content %}
+
+<style>
+  #blank {
+    height: 200px; /* Set a fixed height */
+    width: 100%; /* Set a fixed width */
+    background-color: transparent; /* Make the background transparent */
+  }
+  .form-container {
+    width: 75%; /* Cover 3/4 of the screen width */
+    margin: 0 auto; /* Center the form with equal margins */
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 200px;
+  }
+</style>
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="form-container">
+    <h2 class="text-center mb-4">Support a New Musician</h2>
+    <form id="supportForm" method="POST">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Enter email"
+          required
+        />
+        <small class="form-text text-muted"
+          >We'll never share your email with anyone else.</small
+        >
+      </div>
+      <div class="form-group mt-3">
+        <label for="name">Your Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="name"
+          placeholder="Your Name"
+          required
+        />
+      </div>
+      <div class="form-group mt-3">
+        <label for="item">My Item</label>
+        <textarea
+          class="form-control"
+          id="item"
+          name="item"
+          rows="3"
+          placeholder="Enter Your Item (e.g Used Violin, New Oboe Reed)"
+          required
+        ></textarea>
+        <small class="form-text text-muted"
+          >Please describe the quality of your item. (e.g new, used)</small
+        >
+      </div>
+      <div class="form-group mt-3">
+        <label for="value">Value of My Item</label>
+        <input
+          type="number"
+          class="form-control"
+          id="value"
+          name="value"
+          placeholder="Enter as a number without '$' symbol"
+          required
+        />
+        <small class="form-text text-muted"
+          >If you don't know, put a close estimate.</small
+        >
+      </div>
+      <div class="form-group mt-3">
+        <label for="lf">What I am Looking For</label>
+        <textarea
+          class="form-control"
+          id="lf"
+          name="lf"
+          placeholder="I am looking for..."
+        ></textarea>
+        <small class="form-text text-muted"
+          >Please be as specific as possible. Leave this portion blank if you
+          are looking to donate your item for free.</small
+        >
+      </div>
+      <div class="form-group mt-3">
+        <label for="info">More Information</label>
+        <input
+          type="text"
+          class="form-control"
+          id="info"
+          name="info"
+          placeholder="Enter more information about your item"
+          required
+        />
+        <small class="form-text text-muted"
+          >Use this space to include more information about your item or
+          specific instructions for the customer.</small
+        >
+      </div>
+      <div class="form-check mt-3">
+        <input
+          type="checkbox"
+          class="form-check-input"
+          id="check"
+          name="check"
+          required
+        />
+        <label class="form-check-label" for="check">
+          I Confirm that I am Using This Website Lawfully
+        </label>
+      </div>
+      <button type="submit" class="btn btn-primary mt-3 w-100">Submit</button>
+    </form>
+  </div>
+</div>
+
+<p id="blank"></p>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "base.html" %} {% block content %}
+
+<style>
+  .card {
+    width: 75%; /* Adjust to 3/4 of the page width */
+    max-width: 900px; /* Optional max width for larger screens */
+    border-radius: 15px;
+    overflow: hidden;
+  }
+  .card-img-top {
+    height: 300px; /* Adjust image height */
+    object-fit: cover;
+  }
+
+  .btn-custom {
+    background-color: white; /* Default white background */
+    color: #0d6efd; /* Bootstrap primary color for text */
+    padding: 10px 30px; /* Increase button padding for longer buttons */
+    border-radius: 5px;
+    width: 250px; /* Ensure consistent button width */
+    height: 50px;
+    text-align: center;
+  }
+  .btn-custom:hover {
+    background-color: #0d6efd; /* Bootstrap primary color on hover */
+    color: white; /* White text on hover */
+  }
+  .home-icon {
+    font-size: 1.5rem;
+    color: #0d6efd;
+  }
+  .home-icon:hover {
+    color: #0a58ca; /* Darker shade on hover */
+  }
+</style>
+
+<div class="d-flex justify-content-center align-items-center vh-100">
+  <div class="card shadow-lg">
+    <div class="card-body">
+      <h3 class="card-title font-weight-bold text-center">
+        {{ post['name'] }} Offering {{ post['my_item']}}
+      </h3>
+
+      <p class="mt-4"><strong>Email:</strong> {{ post['email'] }}</p>
+      <p><strong>Looking For:</strong> {{ post['looking_for'] }}</p>
+      <p><strong>Value:</strong> ${{ post['value'] }}</p>
+      <p><strong>More Info:</strong> {{ post['more_info'] }}</p>
+
+      <!-- Comment Box -->
+      <div class="mt-4">
+        <h4>Leave a Comment</h4>
+        <form method="POST">
+          <textarea
+            class="form-control mb-2"
+            rows="4"
+            name="comment"
+            placeholder="Write your comment here..."
+            required
+          ></textarea>
+          <div class="d-flex">
+            <button type="submit" class="btn-custom me-2">Submit</button>
+            <a
+              href="{{ url_for('forum') }}"
+              class="btn-custom d-flex align-items-center justify-content-center"
+            >
+              <i class="bi bi-house home-icon"></i>
+            </a>
+          </div>
+        </form>
+      </div>
+
+      <div class="mt-4">
+        <h4>Comments</h4>
+        <div class="comments-section">
+          {% for comment in comments %}
+          <div class="comment mb-3 p-3 border rounded">
+            <p>
+              <strong>{{ comment['name'] }}</strong>
+              <span class="text-muted">- {{ comment['creation_time'] }}</span>
+            </p>
+            <p>{{ comment['comment'] }}</p>
+          </div>
+          {% endfor %} {% if comments|length == 0 %}
+          <p class="text-muted">No comments yet. Be the first to comment!</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

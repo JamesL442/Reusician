@@ -1,0 +1,107 @@
+{% extends "base.html" %} {% block content %}
+
+<style>
+  #blank {
+    height: 100px; /* Set a fixed height */
+    width: 100%; /* Set a fixed width */
+    background-color: transparent; /* Make the background transparent */
+  }
+  .container {
+    max-width: 1200px;
+    margin-top: 50px; /* Reduce top margin */
+    margin-bottom: 50px; /* Reduce bottom margin */
+    background-color: transparent; /* Make the container background transparent */
+  }
+  .card {
+    background-color: white; /* Make card backgrounds transparent */
+  }
+  .profile-image {
+    max-height: 400px; /* Reduce image height */
+    max-width: 100%; /* Ensure the image does not exceed the container width */
+    object-fit: contain; /* Ensure the image scales proportionally */
+    margin-bottom: 20px; /* Reduce space below the image */
+  }
+  .welcome-text {
+    margin-top: -10px; /* Reduce space above the welcome text */
+  }
+  .feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #0d6efd;
+    border-radius: 50%;
+  }
+  .feature {
+    margin-bottom: 2rem;
+  }
+</style>
+
+<div class="container mt-4">
+  <!-- Large Image -->
+  <div class="text-center">
+    <img
+      src="{{ url_for('static', filename='media/logo2.png') }}"
+      alt="Profile Banner"
+      class="img-fluid rounded profile-image"
+    />
+  </div>
+
+  <!-- Profile Text -->
+  <div class="text-center welcome-text">
+    <h1>Welcome, {{ current_user.id }}</h1>
+    <p class="mt-3">
+      This is your profile page. Here you can view and manage your account
+      details, explore your contributions, and connect with other musicians.
+    </p>
+  </div>
+
+  <!-- Features Section -->
+  <div class="row text-center">
+    <div class="col-md-4 feature">
+      <div class="feature-icon bg-primary">
+        <i class="bi bi-music-note-list"></i>
+      </div>
+      <h3 class="fs-4 mt-3">My Contributions</h3>
+      <p>View the items you have listed for exchange or donation.</p>
+      <a href="{{ url_for('my_contributions') }}" class="text-primary"
+        >View My Items</a
+      >
+    </div>
+    <div class="col-md-4 feature">
+      <div class="feature-icon bg-primary">
+        <i class="bi bi-gear"></i>
+      </div>
+      <h3 class="fs-4 mt-3">Account Settings</h3>
+      <p>Update your account details and preferences.</p>
+      <a href="{{ url_for('placeholder') }}" class="text-primary"
+        >Manage Account</a
+      >
+    </div>
+    <div class="col-md-4 feature">
+      <div class="feature-icon bg-primary">
+        <i class="bi bi-people"></i>
+      </div>
+      <h3 class="fs-4 mt-3">Explore Forum</h3>
+      <p>Join discussions and connect with other musicians.</p>
+      <a href="{{ url_for('forum') }}" class="text-primary">Go to Forum</a>
+    </div>
+  </div>
+
+  <!-- Call to Action -->
+  <div class="text-center mt-5">
+    <h2>Get Involved</h2>
+    <p class="mt-3">
+      Ready to contribute more? List your items or explore the forum!
+    </p>
+    <a href="{{ url_for('support') }}" class="btn btn-primary">List My Items</a>
+  </div>
+</div>
+
+<p id="blank"></p>
+
+<p id="footer"></p>
+{% endblock %}
